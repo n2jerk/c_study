@@ -50,6 +50,7 @@ void print_path()
 }
 int main(int argc, char const *argv[])
 {
+  
 #ifdef local
     freopen("euler.in", "r", stdin);
     // freopen("euler.out", "w", stdout);
