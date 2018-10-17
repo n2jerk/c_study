@@ -9,8 +9,8 @@ using namespace std;
 typedef struct
 {
     int u, v;
-} node;
-stack<node> ans;
+} path;  //存储路径信息
+stack<path> ans;
 int n, G[N][N], vis[N][N], f = 0;
 void euler(int u)
 {
@@ -21,24 +21,24 @@ void euler(int u)
             vis[u][v]++;
             vis[v][u]++;
             euler(v);
-            node k;
+            path k;
             k.u = u, k.v = v;
             ans.push(k);
         }
     }
 }
-void print_path()
+int print_path()
 {
-    node a, b;
+    path a, b;
     a.u = a.v = -1;
-    int first = 1;
+    int first = 1,ok=1;
     while(!ans.empty())
     {
         b = ans.top();
         ans.pop();
         if(a.v != b.u)
         {
-            if (!first)  printf("\n");
+            if (!first)  {printf("\n");ok=0;}
             printf("%d %d ", b.u, b.v);
             first = 0;
         }
@@ -47,6 +47,7 @@ void print_path()
         a = b;
     }
     printf("\n-------------\n");
+    return ok;
 }
 int main(int argc, char const *argv[])
 {
