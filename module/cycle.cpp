@@ -33,8 +33,8 @@ void pathall(int u, int v,  int d)
 int main(int argc, char const *argv[])
 {
 #ifdef local
-    freopen("tmp.in", "r", stdin);
-    freopen("tmp.out", "w", stdout);
+    freopen("cycle.in", "r", stdin);
+    freopen("cycle.out", "w", stdout);
 #endif
     int m, x, y;
     //n个顶点,m条边
